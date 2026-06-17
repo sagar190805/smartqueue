@@ -1,5 +1,5 @@
 import axios from "axios";
-const api = axios.create({ baseURL: "http://localhost:8080/api" });
+const api = axios.create({ baseURL: "https://smartqueue-production-7fa9.up.railway.app/api" });
 api.interceptors.request.use(c => {
   const u = JSON.parse(localStorage.getItem("user") || "null");
   if (u?.token) c.headers["Authorization"] = `Bearer ${u.token}`;
