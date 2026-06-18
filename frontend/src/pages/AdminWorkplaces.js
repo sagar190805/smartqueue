@@ -11,10 +11,10 @@ export default function AdminWorkplaces() {
   const [wps, setWps]   = useState([]);
   const [form, setForm] = useState({ name:"", type:"Hospital", location:"" });
   const [loading, setLoading] = useState(false);
-
+useEffect(() => {
   const load = () => getWorkplacesByAdmin(user.id).then(r => setWps(r.data)).catch(() => {});
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-useEffect(() => { if (user.id) load(); }, [user.id]);
+  if (user.id) load();
+}, [user.id]);
 
   const handleAdd = async () => {
     if (!form.name.trim()) { toast.error("Name is required"); return; }
