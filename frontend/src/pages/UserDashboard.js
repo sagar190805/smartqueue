@@ -41,7 +41,7 @@ export default function UserDashboard() {
     refresh();
     const poll = setInterval(refresh, 4000);
     const client = new Client({
-      webSocketFactory: () => new SockJS("http://localhost:8080/ws"),
+      webSocketFactory: () => new SockJS("https://smartqueue-production-7fa9.up.railway.app/ws"),
       onConnect: () => client.subscribe(`/topic/queue/${wp.id}`, m => {
         const d = JSON.parse(m.body);
         setCurrent(d.currentToken); setActive(d.active);

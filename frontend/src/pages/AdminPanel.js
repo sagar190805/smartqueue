@@ -42,7 +42,7 @@ export default function AdminPanel() {
     refresh();
     const poll = setInterval(refresh, 5000);
     const client = new Client({
-      webSocketFactory: () => new SockJS("http://localhost:8080/ws"),
+      webSocketFactory: () => new SockJS("https://smartqueue-production-7fa9.up.railway.app/ws"),
       onConnect: () => client.subscribe(`/topic/queue/${wp.id}`, () => refresh()),
       reconnectDelay: 3000,
     });

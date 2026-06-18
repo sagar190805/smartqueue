@@ -13,7 +13,8 @@ export default function AdminWorkplaces() {
   const [loading, setLoading] = useState(false);
 
   const load = () => getWorkplacesByAdmin(user.id).then(r => setWps(r.data)).catch(() => {});
-  useEffect(() => { if (user.id) load(); }, [user.id]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+useEffect(() => { if (user.id) load(); }, [user.id]);
 
   const handleAdd = async () => {
     if (!form.name.trim()) { toast.error("Name is required"); return; }
