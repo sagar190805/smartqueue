@@ -9,7 +9,17 @@ export default function Home() {
       
       {/* Navbar */}
       <header className="sticky top-0 z-50 px-6 py-4 flex items-center justify-between border-b border-slate-200 bg-white/80 backdrop-blur-md">
-        <div className="flex items-center gap-2 cursor-pointer" onClick={() => nav("/")}>
+        <div className="flex items-center gap-3 cursor-pointer" onClick={() => nav("/")}>
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-teal-400 flex items-center justify-center text-white shadow-lg shadow-teal-500/30">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+              <circle cx="12" cy="12" r="9" />
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 3v-2" />
+              <path d="M12 23v-2" />
+              <path d="M3 12h-2" />
+              <path d="M23 12h-2" />
+            </svg>
+          </div>
           <span className="text-2xl font-extrabold tracking-tighter text-slate-900">
             Smart<span className="text-transparent bg-clip-text bg-gradient-to-br from-teal-500 to-teal-400">Queue</span>
             <span className="text-teal-500">.</span>
@@ -105,7 +115,17 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-teal-500 flex items-center justify-center text-white shadow-md shadow-teal-500/20">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                <circle cx="12" cy="12" r="9" />
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 3v-2" />
+                <path d="M12 23v-2" />
+                <path d="M3 12h-2" />
+                <path d="M23 12h-2" />
+              </svg>
+            </div>
             <span className="text-xl font-extrabold tracking-tighter text-white">
               Smart<span className="text-transparent bg-clip-text bg-gradient-to-br from-teal-500 to-teal-400">Queue</span>
               <span className="text-teal-500">.</span>
