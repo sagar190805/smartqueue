@@ -21,37 +21,37 @@ export default function AdminSessions() {
   return (
     <AdminLayout title="Sessions">
       <div style={{ marginBottom:20 }}>
-        <div style={{ fontSize:11, color:"#64748b", textTransform:"uppercase", letterSpacing:1, marginBottom:5 }}>Workplace</div>
-        <select value={wp?.id||""} onChange={e=>setWp(wps.find(w=>w.id===e.target.value))}
-          style={{ padding:"8px 12px", background:"#1e2d4a", border:"1px solid #2d3f5e", borderRadius:9, color:"#e2e8f0", fontSize:14, outline:"none", minWidth:240 }}>
+        <div style={{ fontSize:11, color:"#475569", textTransform:"uppercase", letterSpacing:1, marginBottom:5, fontWeight:600 }}>Workplace</div>
+        <select className="input-field" value={wp?.id||""} onChange={e=>setWp(wps.find(w=>w.id===e.target.value))}
+          style={{ padding:"10px 12px", minWidth:240 }}>
           {wps.map(w=><option key={w.id} value={w.id}>{w.name} ({w.type})</option>)}
         </select>
       </div>
-      <div style={{ background:"#0f1629", border:"1px solid #1e2d4a", borderRadius:14, overflow:"hidden" }}>
-        <div style={{ padding:"14px 20px", borderBottom:"1px solid #1e2d4a", fontWeight:700, fontSize:15, color:"#fff", fontFamily:"'Space Grotesk',sans-serif" }}>
+      <div className="card" style={{ overflow:"hidden" }}>
+        <div style={{ padding:"18px 20px", borderBottom:"1px solid #e2e8f0", fontWeight:700, fontSize:16, color:"#0f172a", fontFamily:"'Space Grotesk',sans-serif" }}>
           Session History ({sessions.length})
         </div>
         {sessions.length===0 ? (
-          <div style={{ padding:40, textAlign:"center", color:"#475569", fontSize:14 }}>No sessions found for this workplace.</div>
+          <div style={{ padding:40, textAlign:"center", color:"#64748b", fontSize:14 }}>No sessions found for this workplace.</div>
         ) : (
           <table style={{ width:"100%", borderCollapse:"collapse" }}>
             <thead>
               <tr>{["Session Name","Status","Tokens Served","Total Joined","Created At"].map(h=>(
-                <th key={h} style={{ padding:"9px 18px", textAlign:"left", fontSize:10, color:"#475569", textTransform:"uppercase", letterSpacing:1, borderBottom:"1px solid #1e2d4a", fontWeight:400 }}>{h}</th>
+                <th key={h} style={{ padding:"12px 20px", textAlign:"left", fontSize:11, color:"#64748b", textTransform:"uppercase", letterSpacing:1, borderBottom:"1px solid #e2e8f0", fontWeight:500 }}>{h}</th>
               ))}</tr>
             </thead>
             <tbody>
               {sessions.map(s=>(
-                <tr key={s.id} style={{ borderBottom:"1px solid #0a0e1a" }}>
-                  <td style={{ padding:"12px 18px", color:"#e2e8f0", fontWeight:500 }}>{s.sessionName}</td>
-                  <td style={{ padding:"12px 18px" }}>
-                    <span style={{ padding:"2px 9px", borderRadius:10, fontSize:11, fontWeight:600, background:s.active?"#064e3b":"#1e2d4a", color:s.active?"#34d399":"#64748b" }}>
+                <tr key={s.id} style={{ borderBottom:"1px solid #f1f5f9" }}>
+                  <td style={{ padding:"14px 20px", color:"#0f172a", fontWeight:500 }}>{s.sessionName}</td>
+                  <td style={{ padding:"14px 20px" }}>
+                    <span style={{ padding:"4px 10px", borderRadius:10, fontSize:11, fontWeight:600, background:s.active?"#dcfce7":"#f1f5f9", color:s.active?"#15803d":"#64748b" }}>
                       {s.active?"● Active":"Closed"}
                     </span>
                   </td>
-                  <td style={{ padding:"12px 18px", color:"#fff", fontWeight:600 }}>{s.currentToken}</td>
-                  <td style={{ padding:"12px 18px", color:"#94a3b8" }}>{s.totalTokens}</td>
-                  <td style={{ padding:"12px 18px", color:"#475569", fontSize:12 }}>{new Date(s.createdAt).toLocaleString()}</td>
+                  <td className="text-teal" style={{ padding:"14px 20px", fontWeight:700 }}>{s.currentToken}</td>
+                  <td style={{ padding:"14px 20px", color:"#475569" }}>{s.totalTokens}</td>
+                  <td style={{ padding:"14px 20px", color:"#64748b", fontSize:12 }}>{new Date(s.createdAt).toLocaleString()}</td>
                 </tr>
               ))}
             </tbody>

@@ -13,5 +13,5 @@ export default function AdminRegister(){
     catch(e){toast.error(e.response?.data||"Registration failed");}
     finally{setLoading(false);}
   };
-  return(<AuthPage title="Admin Registration" accent="#8b5cf6"><Field label="Name" value={f.name} onChange={v=>setF({...f,name:v})}/><Field label="Email" type="email" value={f.email} onChange={v=>setF({...f,email:v})}/><Field label="Password" type="password" value={f.password} onChange={v=>setF({...f,password:v})} onEnter={handle}/><Btn onClick={handle} loading={loading} accent="linear-gradient(135deg,#8b5cf6,#6d28d9)">Create Admin Account</Btn></AuthPage>);
+  return(<AuthPage title="Admin Registration" accent="#4f46e5"><Field label="Name" value={f.name} onChange={v=>setF({...f,name:v})}/><Field label="Email" type="email" value={f.email} onChange={v=>setF({...f,email:v})}/><Field label="Password" type="password" value={f.password} onChange={v=>setF({...f,password:v})} onEnter={handle}/><Btn onClick={handle} loading={loading} accent="primary">Create Admin Account</Btn><div style={{textAlign:"center",marginTop:16,fontSize:13,color:"#64748b"}}>Have account? <span style={{color:"#4f46e5",cursor:"pointer",fontWeight:500}} onClick={()=>nav("/admin/login")}>Login</span></div></AuthPage>);
 }

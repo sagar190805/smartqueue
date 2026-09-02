@@ -13,5 +13,5 @@ export default function UserRegister(){
     catch(e){toast.error(e.response?.data||"Registration failed");}
     finally{setLoading(false);}
   };
-  return(<AuthPage title="Create Account"><Field label="Name" value={f.name} onChange={v=>setF({...f,name:v})}/><Field label="Email" type="email" value={f.email} onChange={v=>setF({...f,email:v})}/><Field label="Password" type="password" value={f.password} onChange={v=>setF({...f,password:v})} onEnter={handle}/><Btn onClick={handle} loading={loading}>Register</Btn><div style={{textAlign:"center",marginTop:14,fontSize:13,color:"#64748b"}}>Have account? <span style={{color:"#6366f1",cursor:"pointer"}} onClick={()=>nav("/user/login")}>Login</span></div></AuthPage>);
+  return(<AuthPage title="Create Account" accent="#0d9488"><Field label="Name" value={f.name} onChange={v=>setF({...f,name:v})}/><Field label="Email" type="email" value={f.email} onChange={v=>setF({...f,email:v})}/><Field label="Password" type="password" value={f.password} onChange={v=>setF({...f,password:v})} onEnter={handle}/><Btn onClick={handle} loading={loading} accent="primary">Register</Btn><div style={{textAlign:"center",marginTop:16,fontSize:13,color:"#64748b"}}>Have account? <span style={{color:"#0d9488",cursor:"pointer",fontWeight:500}} onClick={()=>nav("/user/login")}>Login</span></div></AuthPage>);
 }

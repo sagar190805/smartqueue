@@ -4,26 +4,26 @@ import toast from "react-hot-toast";
 import { loginUser } from "../services/api";
 
 const S = {
-  wrap: { minHeight:"100vh", background:"#0a0e1a", display:"flex", alignItems:"center", justifyContent:"center", padding:20 },
-  card: { width:360, background:"#0f1629", border:"1px solid #1e2d4a", borderRadius:16, padding:"32px 28px" },
+  wrap: { minHeight:"100vh", background:"#f8fafc", display:"flex", alignItems:"center", justifyContent:"center", padding:20 },
+  card: { width:380, padding:"32px 28px", borderRadius:16 },
   logo: { display:"flex", alignItems:"center", gap:8, marginBottom:24, cursor:"pointer" },
-  icon: (a="#6366f1") => ({ width:30, height:30, borderRadius:8, background:`linear-gradient(135deg,${a},#8b5cf6)`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:15 }),
-  title: { fontFamily:"'Space Grotesk',sans-serif", fontWeight:700, fontSize:22, color:"#fff", marginBottom:20 },
-  label: { display:"block", fontSize:11, color:"#64748b", marginBottom:4, textTransform:"uppercase", letterSpacing:.5 },
-  input: { width:"100%", padding:"10px 12px", background:"#1e2d4a", border:"1px solid #2d3f5e", borderRadius:8, color:"#e2e8f0", fontSize:14, outline:"none", marginBottom:14, fontFamily:"Inter,sans-serif" },
-  btn: (a="linear-gradient(135deg,#6366f1,#4f46e5)") => ({ width:"100%", padding:11, borderRadius:8, border:"none", background:a, color:"#fff", fontSize:14, fontWeight:600, cursor:"pointer", marginTop:4 }),
-  foot: { textAlign:"center", marginTop:14, fontSize:13, color:"#64748b" },
-  link: (a="#6366f1") => ({ color:a, cursor:"pointer" }),
+  icon: (a="#0d9488") => ({ width:30, height:30, borderRadius:8, background:`linear-gradient(135deg,${a},#0f766e)`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:15, color:"#fff" }),
+  title: { fontFamily:"'Space Grotesk',sans-serif", fontWeight:700, fontSize:24, color:"#0f172a", marginBottom:24, textAlign:"center" },
+  label: { display:"block", fontSize:11, color:"#475569", marginBottom:4, textTransform:"uppercase", letterSpacing:.5, fontWeight:600 },
+  input: { width:"100%", padding:"12px", borderRadius:8, fontSize:14, marginBottom:16, fontFamily:"Inter,sans-serif" },
+  btn: (a="#0d9488") => ({ width:"100%", padding:"12px", borderRadius:8, fontSize:14, fontWeight:600, cursor:"pointer", marginTop:4 }),
+  foot: { textAlign:"center", marginTop:16, fontSize:13, color:"#64748b" },
+  link: (a="#0d9488") => ({ color:a, cursor:"pointer", fontWeight:500 }),
 };
 
-export function AuthPage({ title, accent="#6366f1", children }) {
+export function AuthPage({ title, accent="#0d9488", children }) {
   const nav = useNavigate();
   return (
     <div style={S.wrap}>
-      <div style={S.card}>
-        <div style={S.logo} onClick={() => nav("/")}>
+      <div className="card" style={S.card}>
+        <div style={{...S.logo, justifyContent:"center"}} onClick={() => nav("/")}>
           <div style={S.icon(accent)}>🎯</div>
-          <span style={{ fontFamily:"'Space Grotesk',sans-serif", fontWeight:700, color:"#fff" }}>SmartQueue</span>
+          <span style={{ fontFamily:"'Space Grotesk',sans-serif", fontWeight:700, fontSize:22, color:"#0f172a" }}>SmartQueue</span>
         </div>
         <div style={S.title}>{title}</div>
         {children}
@@ -36,16 +36,16 @@ export function Field({ label, type="text", value, onChange, onEnter }) {
   return (
     <div>
       <label style={S.label}>{label}</label>
-      <input style={S.input} type={type} value={value}
+      <input className="input-field" style={S.input} type={type} value={value}
         onChange={e => onChange(e.target.value)}
         onKeyDown={e => e.key==="Enter" && onEnter && onEnter()} />
     </div>
   );
 }
 
-export function Btn({ children, onClick, loading, accent }) {
+export function Btn({ children, onClick, loading, accent="primary" }) {
   return (
-    <button style={{ ...S.btn(accent), opacity: loading ? .7 : 1 }}
+    <button className={`btn-${accent}`} style={{...S.btn(), opacity: loading ? .7 : 1 }}
       onClick={onClick} disabled={loading}>
       {loading ? "Please wait…" : children}
     </button>
@@ -70,8 +70,8 @@ export default function UserLogin() {
     <AuthPage title="User Login">
       <Field label="Email" type="email" value={f.email} onChange={v=>setF({...f,email:v})} />
       <Field label="Password" type="password" value={f.password} onChange={v=>setF({...f,password:v})} onEnter={handle} />
-      <Btn onClick={handle} loading={loading}>Login</Btn>
-      <div style={S.foot}>No account? <span style={S.link()} onClick={()=>nav("/user/register")}>Register</span></div>
+      <Btn onClick={handle} loading={loading} accent="primary">Login</Btn>
+      <div style={S.foot}>No account? <span style={S.link("#0d9488")} onClick={()=>nav("/user/register")}>Register</span></div>
     </AuthPage>
   );
 }

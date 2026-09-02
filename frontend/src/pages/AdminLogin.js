@@ -13,5 +13,5 @@ export default function AdminLogin(){
     catch(e){toast.error(e.response?.data||"Login failed");}
     finally{setLoading(false);}
   };
-  return(<AuthPage title="Admin Login" accent="#8b5cf6"><Field label="Email" type="email" value={f.email} onChange={v=>setF({...f,email:v})}/><Field label="Password" type="password" value={f.password} onChange={v=>setF({...f,password:v})} onEnter={handle}/><Btn onClick={handle} loading={loading} accent="linear-gradient(135deg,#8b5cf6,#6d28d9)">Login as Admin</Btn><div style={{textAlign:"center",marginTop:14,fontSize:13,color:"#64748b"}}>No account? <span style={{color:"#8b5cf6",cursor:"pointer"}} onClick={()=>nav("/admin/register")}>Register</span></div></AuthPage>);
+  return(<AuthPage title="Admin Login" accent="#4f46e5"><Field label="Email" type="email" value={f.email} onChange={v=>setF({...f,email:v})}/><Field label="Password" type="password" value={f.password} onChange={v=>setF({...f,password:v})} onEnter={handle}/><Btn onClick={handle} loading={loading} accent="primary">Login as Admin</Btn><div style={{textAlign:"center",marginTop:16,fontSize:13,color:"#64748b"}}>No account? <span style={{color:"#4f46e5",cursor:"pointer",fontWeight:500}} onClick={()=>nav("/admin/register")}>Register</span></div></AuthPage>);
 }
