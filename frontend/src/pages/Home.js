@@ -16,7 +16,7 @@ export default function Home() {
           <span className="font-bold text-xl tracking-tight">SmartQueue</span>
         </div>
         <div className="flex items-center gap-4">
-          <button onClick={() => nav("/user/login")} className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors">Log in</button>
+          <button onClick={() => nav("/user/login")} className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors bg-transparent border-none outline-none">Log in</button>
           <button onClick={() => nav("/admin/login")} className="text-sm font-semibold bg-slate-900 text-white px-5 py-2.5 rounded-full hover:bg-slate-800 transition-all shadow-md">Admin Portal</button>
         </div>
       </header>
