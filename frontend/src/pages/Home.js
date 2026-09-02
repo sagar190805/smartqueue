@@ -9,11 +9,11 @@ export default function Home() {
       
       {/* Navbar */}
       <header className="sticky top-0 z-50 px-6 py-4 flex items-center justify-between border-b border-slate-200 bg-white/80 backdrop-blur-md">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-teal-400 flex items-center justify-center text-white shadow-lg shadow-teal-500/20">
-            <Sparkles className="w-5 h-5" />
-          </div>
-          <span className="font-bold text-xl tracking-tight">SmartQueue</span>
+        <div className="flex items-center gap-2 cursor-pointer" onClick={() => nav("/")}>
+          <span className="text-2xl font-extrabold tracking-tighter text-slate-900">
+            Smart<span className="text-transparent bg-clip-text bg-gradient-to-br from-teal-500 to-teal-400">Queue</span>
+            <span className="text-teal-500">.</span>
+          </span>
         </div>
         <div className="flex items-center gap-4">
           <button onClick={() => nav("/user/login")} className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors bg-transparent border-none outline-none">Log in</button>
@@ -105,12 +105,12 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-teal-500 flex items-center justify-center text-white">
-              <Sparkles className="w-4 h-4" />
-            </div>
-            <span className="font-bold text-lg text-white">SmartQueue</span>
-            <span className="border-l border-slate-700 pl-4 ml-1 text-sm">© {new Date().getFullYear()}</span>
+          <div className="flex items-center gap-2">
+            <span className="text-xl font-extrabold tracking-tighter text-white">
+              Smart<span className="text-transparent bg-clip-text bg-gradient-to-br from-teal-500 to-teal-400">Queue</span>
+              <span className="text-teal-500">.</span>
+            </span>
+            <span className="border-l border-slate-700 pl-4 ml-2 text-sm text-slate-500">© {new Date().getFullYear()}</span>
           </div>
           <div className="flex gap-8 text-sm font-medium">
             <span className="cursor-pointer hover:text-white transition-colors">Privacy Policy</span>
