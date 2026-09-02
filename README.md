@@ -1,22 +1,22 @@
 ﻿<div align="center">
   <img src="frontend/public/hero_illustration.jpg" alt="SmartQueue Banner" width="100%">
   
-  <h1>🎯 SmartQueue</h1>
+  <h1> SmartQueue</h1>
   <p><strong>Next-Gen Digital Queue Management System</strong></p>
   <p>Say goodbye to waiting in physical lines. Join digitally, track your wait time in real-time, and arrive exactly when it's your turn.</p>
 </div>
 
 <hr />
 
-## ✨ Key Features
+##  Key Features
 
-- **📱 Remote Queuing:** Users can pull a digital token from their phone without physically standing in line.
-- **⏱️ Live Tracking:** Real-time updates powered by WebSockets ensure users know exactly who is being served instantly.
-- **🏢 Multi-Workplace Support:** Admins can manage multiple locations, desks, or branches from a single unified panel.
-- **📊 Real-time Analytics:** Track total tokens, active sessions, and performance metrics via visual charts.
-- **🔒 Enterprise-Grade Security:** Fully secured with JSON Web Tokens (JWT) and BCrypt password hashing.
+- **Remote Queuing:** Users can pull a digital token from their phone without physically standing in line.
+- ** Live Tracking:** Real-time updates powered by WebSockets ensure users know exactly who is being served instantly.
+- ** Multi-Workplace Support:** Admins can manage multiple locations, desks, or branches from a single unified panel.
+- ** Real-time Analytics:** Track total tokens, active sessions, and performance metrics via visual charts.
+- ** Enterprise-Grade Security:** Fully secured with JSON Web Tokens (JWT) and BCrypt password hashing.
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Frontend (Client-Side)
 - **React 18** (UI Library)
@@ -36,7 +36,7 @@
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 Follow these instructions to get a copy of the project up and running on your local machine for development and testing.
 
@@ -72,7 +72,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 ---
 
-## 💻 Usage & Workflows
+##  Usage & Workflows
 
 **For Users:**
 1. Navigate to \http://localhost:3000/user/register\ to create an account.
@@ -87,5 +87,5 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 ---
 <div align="center">
-  <i>Built with ❤️ for modern queue management.</i>
+  <i>Built for modern queue management.</i>
 </div>
