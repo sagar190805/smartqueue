@@ -18,7 +18,7 @@ export default function Home() {
       </header>
 
       <main style={{ flex:1 }}>
-        {/* Hero Section */}
+        
         <div style={{ display:"flex", alignItems:"center", justifyContent:"center", padding:"80px 20px", background:"#ffffff", borderBottom:"1px solid #e2e8f0" }}>
           <div style={{ maxWidth:1100, width:"100%", display:"flex", flexWrap:"wrap", gap:60, alignItems:"center" }}>
             
@@ -51,7 +51,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Features Section */}
+        
         <div style={{ padding:"80px 20px", display:"flex", justifyContent:"center" }}>
           <div style={{ maxWidth:1100, width:"100%" }}>
             <div className="animate-fade-in-up" style={{ textAlign:"center", marginBottom:60 }}>
@@ -76,7 +76,7 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Footer */}
+      
       <footer style={{ background:"#ffffff", borderTop:"1px solid #e2e8f0", padding:"40px 20px", display:"flex", justifyContent:"center", marginTop:"auto" }}>
         <div style={{ maxWidth:1100, width:"100%", display:"flex", flexWrap:"wrap", justifyContent:"space-between", alignItems:"center", gap:20 }}>
           <div style={{ display:"flex", alignItems:"center", gap:10 }}>
