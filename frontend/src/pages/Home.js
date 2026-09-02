@@ -22,36 +22,13 @@ export default function Home() {
         <div style={{ display:"flex", alignItems:"center", justifyContent:"center", padding:"80px 20px", background:"#ffffff", borderBottom:"1px solid #e2e8f0" }}>
           <div style={{ maxWidth:1100, width:"100%", display:"flex", flexWrap:"wrap", gap:60, alignItems:"center" }}>
             
-            <div className="animate-fade-in-up delay-400" style={{ flex:"1 1 400px", position:"relative", height: 460, display:"flex", alignItems:"center", justifyContent:"center" }}>
-               <div style={{ position:"absolute", width:"100%", height:"100%", background:"radial-gradient(circle at center, #ccfbf1 0%, transparent 70%)", opacity:0.6, zIndex:0 }}></div>
-               
-               <div className="card animate-float" style={{ width: 340, padding: 24, zIndex:2, boxShadow:"0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}>
-                  <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:24 }}>
-                    <div style={{ fontWeight:700, fontSize:16, color:"#0f172a" }}>City Hospital</div>
-                    <div style={{ fontSize:12, color:"#10b981", background:"#dcfce7", padding:"4px 8px", borderRadius:12, fontWeight:600 }}>● Live</div>
-                  </div>
-                  <div style={{ textAlign:"center", marginBottom:30 }}>
-                    <div style={{ fontSize:13, color:"#64748b", textTransform:"uppercase", letterSpacing:1, marginBottom:8 }}>Now Serving</div>
-                    <div className="text-teal" style={{ fontSize:56, fontWeight:800, fontFamily:"'Space Grotesk',sans-serif", lineHeight:1 }}>142</div>
-                  </div>
-                  <div>
-                    <div style={{ fontSize:13, color:"#64748b", marginBottom:12, fontWeight:500 }}>Your Token</div>
-                    <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", padding:16, border:"1px solid #e2e8f0", borderRadius:12, background:"#f8fafc" }}>
-                      <div style={{ fontSize:24, fontWeight:700, color:"#0f172a" }}>145</div>
-                      <div style={{ textAlign:"right" }}>
-                        <div style={{ fontSize:12, color:"#64748b" }}>Est. Wait</div>
-                        <div style={{ fontSize:14, fontWeight:600, color:"#f59e0b" }}>~6 mins</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div style={{ marginTop:24, display:"flex", gap:12 }}>
-                    <div style={{ flex:1, height:40, borderRadius:8, background:"#f1f5f9", display:"flex", alignItems:"center", justifyContent:"center", fontSize:13, color:"#475569", fontWeight:600 }}>Leave</div>
-                    <div style={{ flex:2, height:40, borderRadius:8, background:"#0d9488", display:"flex", alignItems:"center", justifyContent:"center", fontSize:13, color:"#fff", fontWeight:600, boxShadow:"0 2px 4px rgba(13,148,136,0.3)" }}>View Details</div>
-                  </div>
-               </div>
-
-               <div className="card" style={{ position:"absolute", width: 340, height: 320, right: 20, bottom: 40, zIndex:1, opacity:0.3, transform:"rotate(6deg)", filter:"blur(2px)" }}></div>
-               <div className="card" style={{ position:"absolute", width: 340, height: 320, left: 20, top: 40, zIndex:1, opacity:0.3, transform:"rotate(-6deg)", filter:"blur(2px)" }}></div>
+            <div className="animate-fade-in-up delay-400" style={{ flex:"1 1 400px", display:"flex", alignItems:"center", justifyContent:"center" }}>
+              <img 
+                src="/hero_illustration.jpg" 
+                alt="SmartQueue 3D Illustration" 
+                style={{ width:"100%", maxWidth: 500, height:"auto", objectFit:"contain", filter:"drop-shadow(0 20px 25px rgba(0,0,0,0.1))" }} 
+                className="animate-float"
+              />
             </div>
 
             <div style={{ flex:"1 1 400px" }}>
