@@ -385,10 +385,6 @@
   background-image: radial-gradient(ellipse at top left, var(--tw-gradient-stops))
 }
 
-.bg-gradient-to-br {
-  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops))
-}
-
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops))
 }
@@ -426,10 +422,6 @@
 
 .to-slate-50 {
   --tw-gradient-to: #f8fafc var(--tw-gradient-to-position)
-}
-
-.to-teal-400 {
-  --tw-gradient-to: #2dd4bf var(--tw-gradient-to-position)
 }
 
 .to-transparent {
