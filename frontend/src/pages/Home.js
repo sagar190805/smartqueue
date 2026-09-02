@@ -22,23 +22,6 @@ export default function Home() {
         <div style={{ display:"flex", alignItems:"center", justifyContent:"center", padding:"80px 20px", background:"#ffffff", borderBottom:"1px solid #e2e8f0" }}>
           <div style={{ maxWidth:1100, width:"100%", display:"flex", flexWrap:"wrap", gap:60, alignItems:"center" }}>
             
-            <div style={{ flex:"1 1 400px" }}>
-              <div className="animate-fade-in-up" style={{ display:"inline-block", padding:"6px 14px", background:"#f0fdfa", color:"#0d9488", borderRadius:20, fontSize:12, fontWeight:600, letterSpacing:1, textTransform:"uppercase", marginBottom:24, border:"1px solid #ccfbf1" }}>
-                Next-Gen Queue Management
-              </div>
-              <h1 className="animate-fade-in-up delay-100" style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:"clamp(40px, 5vw, 56px)", fontWeight:800, lineHeight:1.1, marginBottom:24, color:"#0f172a" }}>
-                Say goodbye to <br/>
-                <span className="text-teal">waiting in line.</span>
-              </h1>
-              <p className="animate-fade-in-up delay-200" style={{ fontSize:18, color:"#475569", marginBottom:40, lineHeight:1.6 }}>
-                SmartQueue digitizes the waiting experience. Join lines remotely, track your position in real-time, and arrive exactly when it's your turn. Perfect for modern clinics, offices, and service centers.
-              </p>
-              <div className="animate-fade-in-up delay-300" style={{ display:"flex", gap:16, flexWrap:"wrap" }}>
-                <button onClick={() => nav("/user/register")} className="btn-primary" style={{ padding:"14px 28px", fontSize:16, boxShadow:"0 4px 6px -1px rgba(13,148,136,0.2)" }}>Get Started for Free</button>
-                <button onClick={() => nav("/admin/register")} className="btn-secondary" style={{ padding:"14px 28px", fontSize:16, border:"1px solid #cbd5e1", background:"#fff" }}>Setup Workplace</button>
-              </div>
-            </div>
-
             <div className="animate-fade-in-up delay-400" style={{ flex:"1 1 400px", position:"relative", height: 460, display:"flex", alignItems:"center", justifyContent:"center" }}>
                <div style={{ position:"absolute", width:"100%", height:"100%", background:"radial-gradient(circle at center, #ccfbf1 0%, transparent 70%)", opacity:0.6, zIndex:0 }}></div>
                
@@ -70,6 +53,24 @@ export default function Home() {
                <div className="card" style={{ position:"absolute", width: 340, height: 320, right: 20, bottom: 40, zIndex:1, opacity:0.3, transform:"rotate(6deg)", filter:"blur(2px)" }}></div>
                <div className="card" style={{ position:"absolute", width: 340, height: 320, left: 20, top: 40, zIndex:1, opacity:0.3, transform:"rotate(-6deg)", filter:"blur(2px)" }}></div>
             </div>
+
+            <div style={{ flex:"1 1 400px" }}>
+              <div className="animate-fade-in-up" style={{ display:"inline-block", padding:"6px 14px", background:"#f0fdfa", color:"#0d9488", borderRadius:20, fontSize:12, fontWeight:600, letterSpacing:1, textTransform:"uppercase", marginBottom:24, border:"1px solid #ccfbf1" }}>
+                Next-Gen Queue Management
+              </div>
+              <h1 className="animate-fade-in-up delay-100" style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:"clamp(40px, 5vw, 56px)", fontWeight:800, lineHeight:1.1, marginBottom:24, color:"#0f172a" }}>
+                Say goodbye to <br/>
+                <span className="text-teal">waiting in line.</span>
+              </h1>
+              <p className="animate-fade-in-up delay-200" style={{ fontSize:18, color:"#475569", marginBottom:40, lineHeight:1.6 }}>
+                SmartQueue digitizes the waiting experience. Join lines remotely, track your position in real-time, and arrive exactly when it's your turn. Perfect for modern clinics, offices, and service centers.
+              </p>
+              <div className="animate-fade-in-up delay-300" style={{ display:"flex", gap:16, flexWrap:"wrap" }}>
+                <button onClick={() => nav("/user/register")} className="btn-primary" style={{ padding:"14px 28px", fontSize:16, boxShadow:"0 4px 6px -1px rgba(13,148,136,0.2)" }}>Get Started for Free</button>
+                <button onClick={() => nav("/admin/register")} className="btn-secondary" style={{ padding:"14px 28px", fontSize:16, border:"1px solid #cbd5e1", background:"#fff" }}>Setup Workplace</button>
+              </div>
+            </div>
+
           </div>
         </div>
 
