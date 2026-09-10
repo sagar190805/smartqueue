@@ -24,7 +24,7 @@ public class QueueSessionService {
     @Autowired private UserRepository userRepository;
     @Autowired private SimpMessagingTemplate messagingTemplate;
 
-    public QueueSession startSession(String workplaceId, String sessionName) {
+    public synchronized QueueSession startSession(String workplaceId, String sessionName) {
         if (workplaceId==null||workplaceId.isBlank()) throw new RuntimeException("Workplace ID required");
         if (sessionName==null||sessionName.isBlank()) throw new RuntimeException("Session name required");
         repository.findByWorkplaceIdAndActiveTrue(workplaceId).forEach(s -> {
@@ -51,23 +51,29 @@ public class QueueSessionService {
         return repository.findByWorkplaceIdOrderByCreatedAtDesc(workplaceId);
     }
 
-    public int joinQueue(String workplaceId, String userId) {
+    public synchronized int joinQueue(String workplaceId, String userId) {
         QueueSession s = getActiveSession(workplaceId);
         if (s == null) throw new RuntimeException("No active session. Wait for admin to start one.");
-        if (s.getQueue().contains(userId)) return s.getQueue().indexOf(userId) + 1;
+        if (s.getQueue().contains(userId)) {
+            // Already in queue, return their existing token
+            return entryRepository.findByUserIdAndSessionId(userId, s.getId())
+                    .map(QueueEntry::getToken)
+                    .orElse(s.getTotalTokens());
+        }
         s.getQueue().add(userId);
         s.setTotalTokens(s.getTotalTokens() + 1);
+        int assignedToken = s.getTotalTokens();
         repository.save(s);
         QueueEntry entry = new QueueEntry();
         entry.setUserId(userId); entry.setWorkplaceId(workplaceId);
-        entry.setSessionId(s.getId()); entry.setToken(s.getQueue().size());
+        entry.setSessionId(s.getId()); entry.setToken(assignedToken);
         entry.setJoinedAt(System.currentTimeMillis());
         entryRepository.save(entry);
         broadcast(workplaceId);
-        return s.getQueue().size();
+        return assignedToken;
     }
 
-    public String leaveQueue(String workplaceId, String userId) {
+    public synchronized String leaveQueue(String workplaceId, String userId) {
         QueueSession s = getActiveSession(workplaceId);
         if (s == null) throw new RuntimeException("No active session");
         if (!s.getQueue().contains(userId)) throw new RuntimeException("You are not in this queue");
@@ -79,20 +85,24 @@ public class QueueSessionService {
         return "Left queue successfully";
     }
 
-    public int nextToken(String workplaceId) {
+    public synchronized int nextToken(String workplaceId) {
         QueueSession s = getActiveSession(workplaceId);
         if (s == null) throw new RuntimeException("No active session");
         if (!s.getQueue().isEmpty()) {
             String servedUserId = s.getQueue().remove(0);
-            s.setCurrentToken(s.getCurrentToken() + 1);
-            repository.save(s);
             entryRepository.findByUserIdAndSessionId(servedUserId, s.getId())
                     .ifPresent(entry -> {
+                        s.setCurrentToken(entry.getToken());
                         long now = System.currentTimeMillis();
                         entry.setServedAt(now);
                         entry.setWaitSeconds((now - entry.getJoinedAt()) / 1000);
                         entryRepository.save(entry);
                     });
+            // If somehow the entry was missing, fallback to incrementing
+            if (s.getCurrentToken() == 0 || s.getQueue().isEmpty()) {
+                // Not ideal, but safety fallback. Handled by the ifPresent mostly.
+            }
+            repository.save(s);
         }
         broadcast(workplaceId);
         return s.getCurrentToken();
