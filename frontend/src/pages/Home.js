@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowRight, Sparkles, LayoutDashboard, Zap, ShieldCheck } from "lucide-react";
+import { ArrowRight, LayoutDashboard, Zap, ShieldCheck } from "lucide-react";
 
 export default function Home() {
   const nav = useNavigate();
